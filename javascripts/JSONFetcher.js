@@ -18,5 +18,14 @@ $.getJSON('https://spreadsheets.google.com/feeds/list/1ZC7Zb1yLamdp0E0Xol-gGO0YP
     
     console.log(entry);
     }
+    var dictArray = Object.keys(dictElo).map(function(key) {
+    	return [key, dictElo[key]];
+		});
+
+	dictArray.sort(function(first, second) {
+  	  return second[1] - first[1];
+	});
+
+	console.log(dictArray);
     
 });
