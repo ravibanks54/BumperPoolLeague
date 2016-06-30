@@ -55,7 +55,7 @@ $.getJSON('https://spreadsheets.google.com/feeds/list/1ZC7Zb1yLamdp0E0Xol-gGO0YP
     	var winner = document.createTextNode(entry.gsx$whowon.$t);
     	cell1.appendChild(winner);
     	var cell2 = document.createElement("td"); 
-    	var vs = document.createTextNode("vs.");
+    	var vs = document.createTextNode("won against");
     	cell2.appendChild(vs);
     	var cell3 = document.createElement("td"); 
     	var loser = document.createTextNode(entry.gsx$wholost.$t);
