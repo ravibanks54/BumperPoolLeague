@@ -31,7 +31,7 @@ var i = 0;
 	// create elements <table> and a <tbody>
 	var tbl = document.createElement("table");
 	var tblBody = document.createElement("tbody");
-	for (var k = entries.length-1; k >= 0; j--){
+	for (var k = entries.length-1; k >= 0; k--){
 		if(i==5){
 			break;
 		}
