@@ -34,13 +34,13 @@ $.getJSON('https://spreadsheets.google.com/feeds/list/1ZC7Zb1yLamdp0E0Xol-gGO0YP
 		var entry = entries[k];
 		var row = document.createElement("tr");
 		var cell1 = document.createElement("td"); 
-    	var winner = entry.gsx$whowon.$t;
+    	var winner = document.createTextNode(entry.gsx$whowon.$t);
     	cell1.appendChild(winner);
     	var cell2 = document.createElement("td"); 
-    	var vs = "vs.";
+    	var vs = document.createTextNode("vs.");
     	cell2.appendChild(vs);
     	var cell3 = document.createElement("td"); 
-    	var loser = entry.gsx$wholost.$t;
+    	var loser = document.createTextNode(entry.gsx$wholost.$t);
     	cell3.appendChild(loser);
     	row.appendChild(cell1);
     	row.appendChild(cell2);
