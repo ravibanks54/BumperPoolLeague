@@ -1,5 +1,5 @@
 $.getJSON('https://spreadsheets.google.com/feeds/list/1ZC7Zb1yLamdp0E0Xol-gGO0YPvyJrVdK6eSikIYGRzs/1/public/full?alt=json', function(data) {
-	var playerNames = ["Ravi", "Anish", "Blake", "Tyler", "Matt", "Ryan"];
+	var playerNames = ["Ravi", "Anish", "Blake", "Tyler", "Matt", "Ryan", "Gautam"];
 	var dictElo = {};
 	for(var i = 0; i < playerNames.length; i++){
 		dictElo[playerNames[i]] = 1200;
