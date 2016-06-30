@@ -45,7 +45,7 @@ $.getJSON('https://spreadsheets.google.com/feeds/list/1ZC7Zb1yLamdp0E0Xol-gGO0YP
     	row.appendChild(cell1);
     	row.appendChild(cell2);
     	row.appendChild(cell3);
-    	tblbody.appendChild(row);
+    	tblBody.appendChild(row);
 	}
 	// append the <tbody> inside the <table>
 	tbl.appendChild(tblBody);
