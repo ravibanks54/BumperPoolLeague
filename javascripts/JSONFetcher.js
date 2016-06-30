@@ -27,7 +27,7 @@ $.getJSON('https://spreadsheets.google.com/feeds/list/1ZC7Zb1yLamdp0E0Xol-gGO0YP
 
 	var table = document.getElementById("leaderboardTable");
 	var tblBody = document.createElement("tbody");
-	for (var k = 0; k < dictArray.length-1; k++){
+	for (var k = 0; k < dictArray.length; k++){
 		var entry = entries[k];
 		var row = document.createElement("tr");
 		var cell1 = document.createElement("td"); 
@@ -46,7 +46,7 @@ $.getJSON('https://spreadsheets.google.com/feeds/list/1ZC7Zb1yLamdp0E0Xol-gGO0YP
 	var table = document.getElementById("recentsTable");
 	var tblBody = document.createElement("tbody");
 	for (var k = entries.length-1; k >= 0; k--){
-		if((entries.length>5) && (entries.length - k >= 5)){
+		if((entries.length>5) && (entries.length - k > 5)){
 			break;
 		}
 		var entry = entries[k];
