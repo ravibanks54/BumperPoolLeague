@@ -26,10 +26,8 @@ $.getJSON('https://spreadsheets.google.com/feeds/list/1ZC7Zb1yLamdp0E0Xol-gGO0YP
 	});
 
 var i = 0;
-	var body = document.getElementById("recents");
+	var table = document.getElementById("table");
 
-	// create elements <table> and a <tbody>
-	var tbl = document.createElement("table");
 	var tblBody = document.createElement("tbody");
 	for (var k = entries.length-1; k >= 0; k--){
 		if(i==5){
@@ -53,9 +51,8 @@ var i = 0;
     	tblBody.appendChild(row);
 	}
 	// append the <tbody> inside the <table>
-	tbl.appendChild(tblBody);
+	table.appendChild(tblBody);
 	// put <table> in the <body>
-	body.appendChild(tbl);
 
 	console.log(dictArray);
     
