@@ -25,12 +25,17 @@ $.getJSON('https://spreadsheets.google.com/feeds/list/1ZC7Zb1yLamdp0E0Xol-gGO0YP
   	  return second[1] - first[1];
 	});
 
+var i = 0;
 	var body = document.getElementById("recents");
 
 	// create elements <table> and a <tbody>
-	var tbl     = document.createElement("table");
+	var tbl = document.createElement("table");
 	var tblBody = document.createElement("tbody");
 	for (var k = entries.length-1; k >= 0; j--){
+		if(i==5){
+			break;
+		}
+		i++;
 		var entry = entries[k];
 		var row = document.createElement("tr");
 		var cell1 = document.createElement("td"); 
