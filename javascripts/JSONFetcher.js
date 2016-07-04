@@ -26,14 +26,25 @@ $.getJSON('https://spreadsheets.google.com/feeds/list/1ZC7Zb1yLamdp0E0Xol-gGO0YP
 	});
 
 	var table = document.getElementById("leaderboardTable");
+    var headerRow = document.createElement("tr");
+    var headerColPlayerName = document.createElement("th");
+    var headerColPlayerNameText = document.createTextNode("Player Name");
+    headerColPlayerName.appendChild(headerColPlayerNameText);
+    var headerColPlayerElo = document.createElement("th");
+    var headerColPlayerEloText = document.createTextNode("Elo Score");
+    headerColPlayerElo.appendChild(headerColPlayerEloText);
+    headerRow.appendChild(headerColPlayerName);
+    headerRow.appendChild(headerColPlayerElo);
+    table.appendChild(headerRow);
+
 	var tblBody = document.createElement("tbody");
 	for (var k = 0; k < dictArray.length; k++){
 		var entry = entries[k];
 		var row = document.createElement("tr");
-		var cell1 = document.createElement("td"); 
+		var cell1 = document.createElement("td");
     	var name = document.createTextNode(dictArray[k][0]);
     	cell1.appendChild(name);
-    	var cell2 = document.createElement("td"); 
+    	var cell2 = document.createElement("td");
     	var elo = document.createTextNode(dictArray[k][1]);
     	cell2.appendChild(elo);
     	row.appendChild(cell1);
@@ -43,7 +54,24 @@ $.getJSON('https://spreadsheets.google.com/feeds/list/1ZC7Zb1yLamdp0E0Xol-gGO0YP
 	// append the <tbody> inside th
 	table.appendChild(tblBody);
 
+
+
 	var table = document.getElementById("recentsTable");
+	headerRow = document.createElement("tr");
+	var headerColWinner = document.createElement("th");
+	var headerColWinnerText = document.createTextNode("Winner");
+	headerColWinner.appendChild(headerColWinnerText);
+	var headerColLoser = document.createElement("th");
+	var headerColLoserText = document.createTextNode("Loser");
+	headerColLoser.appendChild(headerColLoserText);
+	var headerColTime = document.createElement("th");
+	var headerColTimeText = document.createTextNode("Game Play Time");
+	headerColTime.appendChild(headerColTimeText);
+	headerRow.appendChild(headerColWinner);
+	headerRow.appendChild(headerColLoser);
+	headerRow.appendChild(headerColTime);
+	table.appendChild(headerRow);
+
 	var tblBody = document.createElement("tbody");
 	for (var k = entries.length-1; k >= 0; k--){
 		if((entries.length>5) && (entries.length - k > playerNames.length)){
@@ -54,15 +82,15 @@ $.getJSON('https://spreadsheets.google.com/feeds/list/1ZC7Zb1yLamdp0E0Xol-gGO0YP
 		var cell1 = document.createElement("td"); 
     	var winner = document.createTextNode(entry.gsx$whowon.$t);
     	cell1.appendChild(winner);
-    	var cell2 = document.createElement("td"); 
-    	var vs = document.createTextNode("won against");
-    	cell2.appendChild(vs);
-    	var cell3 = document.createElement("td"); 
-    	var loser = document.createTextNode(entry.gsx$wholost.$t);
-    	cell3.appendChild(loser);
+    	var cell2 = document.createElement("td");
+		var loser = document.createTextNode(entry.gsx$wholost.$t);
+		cell2.appendChild(loser);
+		var cell3 = document.createElement("td");
+		var time = document.createTextNode(entry.gsx$timestamp.$t);
+		cell3.appendChild(time);
     	row.appendChild(cell1);
     	row.appendChild(cell2);
-    	row.appendChild(cell3);
+		row.appendChild(cell3);
     	tblBody.appendChild(row);
 	}
 	// append the <tbody> inside the <table>
