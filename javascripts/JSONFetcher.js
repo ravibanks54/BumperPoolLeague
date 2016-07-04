@@ -1,5 +1,6 @@
 $.getJSON('https://spreadsheets.google.com/feeds/list/1ZC7Zb1yLamdp0E0Xol-gGO0YPvyJrVdK6eSikIYGRzs/1/public/full?alt=json', function(data) {
 	var playerNames = ["Ravi", "Anish", "Blake", "Tyler", "Matt", "Ryan", "Gautam"];
+	var NUM_GAMES_TO_DISPLAY = 10;
 	var dictElo = {};
 	for(var i = 0; i < playerNames.length; i++){
 		dictElo[playerNames[i]] = 1200;
@@ -54,8 +55,6 @@ $.getJSON('https://spreadsheets.google.com/feeds/list/1ZC7Zb1yLamdp0E0Xol-gGO0YP
 	// append the <tbody> inside th
 	table.appendChild(tblBody);
 
-
-
 	var table = document.getElementById("recentsTable");
 	headerRow = document.createElement("tr");
 	var headerColWinner = document.createElement("th");
@@ -73,11 +72,9 @@ $.getJSON('https://spreadsheets.google.com/feeds/list/1ZC7Zb1yLamdp0E0Xol-gGO0YP
 	table.appendChild(headerRow);
 
 	var tblBody = document.createElement("tbody");
-	for (var k = entries.length-1; k >= 0; k--){
-		if((entries.length>5) && (entries.length - k > playerNames.length)){
-			break;
-		}
-		var entry = entries[k];
+	NUM_GAMES_TO_DISPLAY = Math.min(entries.length, NUM_GAMES_TO_DISPLAY);
+	for (var k = 0; k < NUM_GAMES_TO_DISPLAY; k++){
+		var entry = entries[entries.length - k - 1];
 		var row = document.createElement("tr");
 		var cell1 = document.createElement("td"); 
     	var winner = document.createTextNode(entry.gsx$whowon.$t);
