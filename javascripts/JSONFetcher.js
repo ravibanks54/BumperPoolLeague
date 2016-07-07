@@ -13,7 +13,7 @@ $.getJSON('https://spreadsheets.google.com/feeds/list/1ZC7Zb1yLamdp0E0Xol-gGO0YP
 		var loser = entry.gsx$wholost.$t;
 		var firstBallIn =  entry.gsx$stballin.$t;
 		var ballsSunkWinner = 5;
-		var ballsSunkLoser = parseInt( entry.gsx$ballssunk-loser.$t);
+		var ballsSunkLoser = parseInt(entry["gsx$ballssunk-loser"].$t);
 		var delta = Elo.getRatingDelta(dictElo[winner], dictElo[loser], 1);
 		dictElo[winner] += delta;
 		dictElo[loser] -= delta;
